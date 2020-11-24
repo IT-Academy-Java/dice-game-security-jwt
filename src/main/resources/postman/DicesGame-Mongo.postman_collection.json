@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "67f124f5-b586-45f7-86d4-ac7495dcffb1",
+		"name": "DicesGame-Mongo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all players",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/players",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"players"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create player",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"shaoran\",\n\"registration_date\": \"2020-11-24\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/players/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"players",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update player name",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"elenita\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/players/5fbccc4a1b245a6c4a801dad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"players",
+						"5fbccc4a1b245a6c4a801dad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create game (roll dices)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/players/5fbccca11b245a6c4a801dae/games",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"players",
+						"5fbccca11b245a6c4a801dae",
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete games by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/players/5fbccca11b245a6c4a801dae/games",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"players",
+						"5fbccca11b245a6c4a801dae",
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List games by player id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/players/5fbccca11b245a6c4a801dae/games",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"players",
+						"5fbccca11b245a6c4a801dae",
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List player with avg rates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/players/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"players",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get loser player",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/players/ranking/loser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"players",
+						"ranking",
+						"loser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get winner payer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/players/ranking/winner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"players",
+						"ranking",
+						"winner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ranking",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/players/ranking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"players",
+						"ranking"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
