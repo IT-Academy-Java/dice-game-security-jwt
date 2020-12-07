@@ -1,4 +1,4 @@
-# Dices Game
+# Dices Game with Security
 
 ## Objectius
 - Reforçar el coneixement de la utilització de JPA
