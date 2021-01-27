@@ -5,8 +5,6 @@ import com.itacademy.dicesgame.exception.PlayerNotFoundException;
 import com.itacademy.dicesgame.service.impl.GameServiceImpl;
 import com.itacademy.dicesgame.service.impl.PlayerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.util.BsonUtils;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
