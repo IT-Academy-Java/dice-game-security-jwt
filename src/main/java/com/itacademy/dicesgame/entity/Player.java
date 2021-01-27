@@ -91,14 +91,14 @@ public class Player {
     public double getSuccessRateByPlayer(List<Game> gameList){
         double successRate = 0;
         if(gameList != null && gameList.size() > 0){
-            int gameListSizee = gameList.size();
+            int gameListSize = gameList.size();
             int totalWin = 0;
             for(Game game: gameList){
                 if(game.isWin()){
                     totalWin++;
                 }
             }
-            successRate = (totalWin * 100) / gameListSizee;
+            successRate = (totalWin * 100) / gameListSize;
         }
         return successRate;
     }
