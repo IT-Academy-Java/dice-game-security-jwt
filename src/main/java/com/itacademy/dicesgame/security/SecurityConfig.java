@@ -29,16 +29,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth.inMemoryAuthentication()
                 .withUser(users.username("admin").password("123").roles("ADMIN", "USER"))
-                .withUser(users.username("elena").password("123").roles("USER"));
+                .withUser(users.username("elena").password("123").roles("USER"))
+                .withUser("user").password("123").roles("USER");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                //.csrf().disable().formLogin().disable().authorizeRequests()
-                //.antMatchers("/players").permitAll()
+                .csrf().disable().formLogin().disable()
+                .authorizeRequests()
+                .antMatchers("/players/").permitAll()
+                .antMatchers("/players").hasRole("ADMIN")
+                .antMatchers("/players/ranking").hasAnyRole("USER")
+                .antMatchers("/players/**/games").hasRole("USER")
+                .and()
+                .formLogin().permitAll()
+                .and()
+                .logout().permitAll();
 
-            .authorizeRequests().antMatchers("/players").permitAll();
+            //.authorizeRequests().antMatchers("/players").permitAll();
     }
 
 
