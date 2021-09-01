@@ -29,9 +29,12 @@ public class DicesgameApplication {
 							UsernamePasswordAuthenticationFilter.class)
 					.authorizeRequests()
 					.antMatchers(HttpMethod.POST, "/user").permitAll()
-					.antMatchers(HttpMethod.GET, "/players").permitAll()
-					.anyRequest().permitAll();
 
+					.antMatchers(HttpMethod.GET, "/players", "/players/", "/players/ranking", "/players/**", "/players/ranking/loser", "/players/ranking/winner").authenticated()
+					.antMatchers(HttpMethod.POST, "/players").authenticated()
+					.antMatchers(HttpMethod.PUT, "/players/**").authenticated()
+
+					.anyRequest().permitAll();
 		}
 	}
 
