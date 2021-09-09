@@ -22,7 +22,6 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
-
         try {
             if(existeJWTToken(request, response)){
                 Claims claims = validateToken(request);
@@ -33,10 +32,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
             chain.doFilter(request, response);
         } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException e){
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-
             response.sendError(HttpServletResponse.SC_FORBIDDEN, e.getMessage());
-           // ( (HttpServletResponse) response.sendError(HttpServletResponse.SC_FORBIDDEN, e.getMessage()));
-
             return;
         }
     }
@@ -50,7 +46,6 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
                         authorities.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
 
         SecurityContextHolder.getContext().setAuthentication(auth);
-
     }
 
     private Claims validateToken(HttpServletRequest request){
@@ -63,7 +58,6 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
         if(authenticationHeader == null || !authenticationHeader.startsWith(PREFIX))
             return false;
         return true;
-
     }
 }
 
